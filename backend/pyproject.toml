@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "backend"
+version = "0.1.0"
+description = ""
+authors = ["hanson190505 <413506012@qq.com>"]
+
+[[tool.poetry.source]]
+name = "douban"
+default = true
+url = "https://pypi.doubanio.com/simple/"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+django = "^3.2.4"
+djangorestframework = "^3.12.4"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
