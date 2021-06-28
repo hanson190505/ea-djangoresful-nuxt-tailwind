@@ -15,6 +15,7 @@ export default async (context, locale) => {
     },
     button: {
       learnMore: 'Learn More',
+      quote: 'Request A Quote',
     },
   })
 }

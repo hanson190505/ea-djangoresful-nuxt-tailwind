@@ -1,13 +1,26 @@
 <template>
   <div class="bg-green-450">
     <div class="container mx-auto p-3">
-      <div class="text-xl textColor">Request A Quate</div>
+      <div class="text-xl textColor">{{ $t(quote) }}</div>
       <p class="pb-2 textColor">
         Email:<a href="mailto:saleschinagoodgifts@gmail.com" target="_bank"
           >saleschinagoodgifts@gmail.com</a
         >
       </p>
-      <div class="grid md:grid-cols-6 gap-4 grid-cols-2">
+      <div class="grid md:grid-cols-3 gap-4 grid-cols-2">
+        <textarea
+          placeholder="Enter your message"
+          required
+          v-model="form.msg"
+          rows="2"
+          class="
+            p-1
+            md:col-span-3
+            col-span-2
+            focus:outline-none focus:ring focus:border-blue-300
+            rounded-sm
+          "
+        ></textarea>
         <input
           type="email"
           placeholder="Enter your email"
@@ -15,7 +28,6 @@
           v-model="form.email"
           class="
             p-1
-            col-span-2
             focus:outline-none focus:ring focus:border-blue-300
             rounded-sm
           "
@@ -25,33 +37,46 @@
           required
           placeholder="Enter your name"
           v-model="form.name"
-          class="p-1 col-span-2 rounded-sm"
+          class="
+            p-1
+            rounded-sm
+            focus:outline-none focus:ring focus:border-blue-300
+          "
         />
         <input
           type="text"
           required
           placeholder="Enter your company"
           v-model="form.company"
-          class="col-span-2 p-1 rounded-sm"
+          class="
+            p-1
+            rounded-sm
+            focus:outline-none focus:ring focus:border-blue-300
+          "
         />
         <input
           type="text"
           required
           placeholder="Enter your phone"
           v-model="form.phone"
-          class="col-span-2 p-1 rounded-sm"
-        />
-        <button
           class="
-            col-span-2
             p-1
-            bg-blue-300
-            hover:bg-blue-500
-            text-white
             rounded-sm
+            focus:outline-none focus:ring focus:border-blue-300
           "
+        />
+        <select
+          class="p-1 focus:outline-none focus:ring focus:border-blue-300"
+          v-model="form.categorySelected"
         >
-          Request a quate
+          <option value="null">Please select product</option>
+          <option value="EA-100P">EA-100P</option>
+          <option value="EA-100S">EA-100S</option>
+          <option value="EA-100A">EA-100A</option>
+          <option value="EA-200">EA-200</option>
+        </select>
+        <button class="p-1 bg-blue-300 hover:bg-blue-500 text-white rounded-sm">
+          {{ $t(quote) }}
         </button>
       </div>
     </div>
@@ -64,13 +89,14 @@ export default Vue.extend({
     return {
       disabled: false,
       form: {
+        msg: '',
         email: '',
         name: '',
         company: '',
         phone: '',
         categorySelected: null,
-        capacitySelected: '4GB',
       },
+      quote: 'button.quote',
     }
   },
   methods: {
