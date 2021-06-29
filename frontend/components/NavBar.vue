@@ -2,8 +2,9 @@
   <div class="bg-gray-600 h-16">
     <div class="grid grid-cols-3 gap-2 container mx-auto">
       <div class="flex h-16 md:col-span-2 col-span-1 items-center">
-        <div class="mr-2 relative">
+        <div class="mr-2 relative" @click="handleSidBarShow">
           <logo></logo>
+          <side-bar ref="sideBar" class="absolute z-50 top-0 pt-14"></side-bar>
         </div>
         <div
           class="mr-4 md:block hidden"
@@ -27,9 +28,10 @@
 </template>
 
 <script>
+import SideBar from './SideBar.vue'
 import Logo from './svg/Logo.vue'
 export default {
-  components: { Logo },
+  components: { Logo, SideBar },
   data() {
     return {
       urls: [
@@ -40,6 +42,11 @@ export default {
         { title: 'links.blog', url: '/blog' },
       ],
     }
+  },
+  methods: {
+    handleSidBarShow() {
+      this.$refs.sideBar.isShow = true
+    },
   },
 }
 </script>

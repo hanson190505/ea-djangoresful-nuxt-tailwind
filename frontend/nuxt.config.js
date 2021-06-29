@@ -66,6 +66,7 @@ export default {
     ],
     lazy: true,
     langDir: 'lang/',
+    strategy: 'prefix_except_default',
     defaultLocale: 'en',
     detectBrowserLanguage: {
       useCookie: true,

@@ -17,5 +17,15 @@ export default async (context, locale) => {
       learnMore: 'Learn More',
       quote: 'Request A Quote',
     },
+    form: {
+      message: 'Enter your message',
+      email: 'Enter your email',
+      name: 'Enter your name',
+      company: 'Enter your company',
+      phone: 'Enter your phone',
+      select: 'Please select product',
+      prompt:
+        'Your personal information is only used so that we can respond to you in a timely manner, we do not store or disclose your personal information!',
+    },
   })
 }

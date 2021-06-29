@@ -1,15 +1,17 @@
 <template>
-  <div class="bg-green-450">
+  <div class="bg-green-450 my-2 shadow-lg">
     <div class="container mx-auto p-3">
-      <div class="text-xl textColor">{{ $t(quote) }}</div>
-      <p class="pb-2 textColor">
-        Email:<a href="mailto:saleschinagoodgifts@gmail.com" target="_bank"
-          >saleschinagoodgifts@gmail.com</a
-        >
-      </p>
+      <div>
+        <p class="text-xl textColor">{{ $t(quote) }}</p>
+        <p class="pb-2 textColor">
+          Email:<a href="mailto:saleschinagoodgifts@gmail.com" target="_bank"
+            >saleschinagoodgifts@gmail.com</a
+          >
+        </p>
+      </div>
       <div class="grid md:grid-cols-3 gap-4 grid-cols-2">
         <textarea
-          placeholder="Enter your message"
+          :placeholder="$t(formTrans.message)"
           required
           v-model="form.msg"
           rows="2"
@@ -23,7 +25,7 @@
         ></textarea>
         <input
           type="email"
-          placeholder="Enter your email"
+          :placeholder="$t(formTrans.email)"
           required
           v-model="form.email"
           class="
@@ -35,7 +37,7 @@
         <input
           type="text"
           required
-          placeholder="Enter your name"
+          :placeholder="$t(formTrans.name)"
           v-model="form.name"
           class="
             p-1
@@ -46,7 +48,7 @@
         <input
           type="text"
           required
-          placeholder="Enter your company"
+          :placeholder="$t(formTrans.company)"
           v-model="form.company"
           class="
             p-1
@@ -57,7 +59,7 @@
         <input
           type="text"
           required
-          placeholder="Enter your phone"
+          :placeholder="$t(formTrans.phone)"
           v-model="form.phone"
           class="
             p-1
@@ -69,7 +71,7 @@
           class="p-1 focus:outline-none focus:ring focus:border-blue-300"
           v-model="form.categorySelected"
         >
-          <option value="null">Please select product</option>
+          <option value="null">{{ $t(formTrans.select) }}</option>
           <option value="EA-100P">EA-100P</option>
           <option value="EA-100S">EA-100S</option>
           <option value="EA-100A">EA-100A</option>
@@ -79,6 +81,7 @@
           {{ $t(quote) }}
         </button>
       </div>
+      <p class="text-xs py-2">{{ $t(formTrans.prompt) }}</p>
     </div>
   </div>
 </template>
@@ -97,6 +100,15 @@ export default Vue.extend({
         categorySelected: null,
       },
       quote: 'button.quote',
+      formTrans: {
+        message: 'form.message',
+        email: 'form.email',
+        name: 'form.name',
+        company: 'form.company',
+        phone: 'form.phone',
+        select: 'form.select',
+        prompt: 'form.prompt',
+      },
     }
   },
   methods: {

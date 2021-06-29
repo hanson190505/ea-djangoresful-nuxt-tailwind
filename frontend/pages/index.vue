@@ -80,7 +80,7 @@
         </div>
       </div>
     </div>
-    <Quate />
+    <Quote />
   </div>
 </template>
 
